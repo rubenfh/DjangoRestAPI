@@ -11,7 +11,7 @@ from recipe import serializers
 
 class RecipeViewSet(viewsets.ModelViewSet):
     """View for manage recipe APIs."""
-    serializer_class = serializers.RecipeSerializer
+    serializer_class = serializers.RecipeDetailSerializer
     queryset = Recipe.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -19,3 +19,19 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """Retrive recipes for authenticated user."""
         return self.queryset.filter(user=self.request.user).order_by('-id')
+
+    def get_serializer(self, *args, **kwargs):
+        """Return the serializer instance for the request."""
+        if self.action == 'list':
+            serializer_class = serializers.RecipeSerializer
+        else:
+            serializer_class = serializers.RecipeDetailSerializer
+
+        # Always provide the context to the serializer.
+        kwargs['context'] = self.get_serializer_context()
+
+        return serializer_class(*args, **kwargs)
+
+    def perform_create(self, serializer):
+        """Create a new recipe"""
+        serializer.save(user=self.request.user)
