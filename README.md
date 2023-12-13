@@ -1,8 +1,5 @@
 # DjangoRestAPI
 
-## Aperçu
-DjangoRestAPI est une implémentation d'une API RESTful basée sur Django. Ce projet offre un cadre backend robuste pour les applications web nécessitant la gestion et l'interaction de données.
-
 ## Fonctionnalités
 - Points de terminaison API RESTful
 - Sérialisation et désérialisation des données
@@ -14,6 +11,21 @@ DjangoRestAPI est une implémentation d'une API RESTful basée sur Django. Ce pr
 2. Installer les paquets Python requis : `pip install -r requirements.txt`.
 3. Configurer et exécuter les conteneurs Docker selon les configurations fournies.
 
-## Utilisation
-- Personnaliser les modèles et les vues selon les besoins du projet.
-- Utiliser les points de terminaison de l'API pour la récupération et la manipulation des données.
+## Accès à l'Application
+
+Lancer l'app : `docker-compose up`
+
+Après avoir lancé votre application Django, voici comment y accéder :
+
+1. **Admin Django** : Accédez à `http://127.0.0.1:8000/admin/` pour utiliser l'interface d'administration de Django.
+
+2. **API Schema** : Consultez le schéma de votre API à `http://127.0.0.1:8000/api/schema/` via `SpectacularAPIView`.
+
+3. **Documentation de l'API** : Pour voir la documentation interactive de l'API, visitez `http://127.0.0.1:8000/api/docs/` qui utilise `SpectacularSwaggerView`.
+
+4. **Endpoints Utilisateur** : Utilisez les endpoints liés à l'utilisateur à `http://127.0.0.1:8000/api/user/`.
+
+5. **Endpoints Recette** : Accédez aux fonctionnalités de recette via `http://127.0.0.1:8000/api/recipe/`.
+
+Assurez-vous que le serveur Django est en cours d'exécution pour accéder à ces URL.
+
