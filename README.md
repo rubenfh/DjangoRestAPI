@@ -9,7 +9,8 @@
 ## Installation
 1. Cloner le dépôt.
 2. Installer les paquets Python requis : `pip install -r requirements.txt`.
-3. Configurer et exécuter les conteneurs Docker selon les configurations fournies.
+3. Lancer l'installation des paquets `docker-compose build`.
+4. Configurer et exécuter les conteneurs Docker selon les configurations fournies.
 
 ## Accès à l'Application
 
